@@ -1,9 +1,5 @@
 import datetime
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask import Flask
-
-app = Flask(__name__)
-db = SQLAlchemy(app)
+from todoapp import db
 
 class Todo(db.Model):
     __tablename__ = "todo"
