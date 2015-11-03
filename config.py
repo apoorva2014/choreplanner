@@ -7,4 +7,4 @@ class DevConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
 
-print(os.environ[DATABASE_URL])
+print(os.environ['DATABASE_URL'])
