@@ -16,12 +16,28 @@ class Todo (db.Model):
 
 class Priority (db.Model):
    __tablename__ = "priority"
-    id = db.Column('id', db.Integer, primary_key=True)
-    name = db.Column('name', db.Unicode)
-    value = db.Column('value', db.Integer)
+   id = db.Column('id', db.Integer, primary_key=True)
+   name = db.Column('name', db.Unicode)
+   value = db.Column('value', db.Integer)
 
 
 class Category (db.Model):
     __tablename__ = "category"
     id = db.Column('id', db.Integer, primary_key=True)
     name = db.Column('name', db.Unicode)
+
+db.create_all()
+
+work = Category(name=u'work')
+home = Category(name=u'home')
+high = Priority(name=u'high',value=3)
+medium = Priority(name=u'medium',value=2)
+low = Priority(name=u'low',value=1)
+
+db.session.add(work)
+db.session.add(home)
+db.session.add(high)
+db.session.add(medium)
+db.session.add(low)
+
+db.session.commit()
